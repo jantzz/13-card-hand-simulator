@@ -13,9 +13,13 @@ def randomcard():
     x.close()
     return choice
 
+name = input("what would you like the file name to be? ")
+
+number = input("how many hands would you like to have? ")
+
 x = 0    
-while(x  < 1500000):
-    with open('results.txt','a') as res:
+while(x  < int(number)):
+    with open(f'{name}.txt','a') as res:
         cards =randomcard()
         res.write(str(cards)+'\n')
     res.close()

@@ -1,7 +1,7 @@
 
-def quads_n_triples():
+def quads_n_triples(file):
     choices = ['A' , '2', '3', '4' , '5' , '6' , '7', '8','9','10','J','Q','K']
-    with open('1,5m.txt') as x:
+    with open(f'{file}.txt') as x:
         res = x.readlines()
         counter = 0
         quad_counter = 0
@@ -21,7 +21,7 @@ def quads_n_triples():
         print("The number of hands with 1 quadruple and 2 triples is: " + str(counter))                  
     x.close()
 
-def straight(): 
+def straight(file): 
     suites = ['C', 'S', 'D', 'H']
     list_in_list = [['C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ'],['C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ'], ['C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ', 'CQ'], ['C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'CJ', 'CQ', 'CK'], ['SA', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10'],['S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ'], ['S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ'],
      ['S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ', 'SK'],['HA', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10'],  ['H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10', 'HJ'],
@@ -30,7 +30,7 @@ def straight():
     suite_counter = 0
     counter2 = 0
     incounter = 0
-    with open('1,5m.txt') as x: 
+    with open(f'{file}.txt') as x: 
         res = x.readlines()
         for lines in res: 
             for y in suites: 
@@ -49,5 +49,8 @@ def straight():
         print("The number of hands with a straight flush that has 10 consecutive numbers is: " + str(counter2))
     x.close()                                    
 
-quads_n_triples()
-straight()
+
+name = input("which file is being tested? ")
+
+quads_n_triples(name)
+straight(name)
